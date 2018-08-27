@@ -6,9 +6,14 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            // Welcome player, choose a name
+            Console.WriteLine("Hello, what's your name?");
             string UserInput = Console.ReadLine();
-            Console.WriteLine("User input was: " + UserInput);
+            
+            var player1 = new Player();
+            player1.SetName(UserInput);
+
+            Console.WriteLine("Welcome to the game " + player1.GetName());
             Console.ReadLine();
         }
     }

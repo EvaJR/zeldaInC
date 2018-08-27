@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp2", "ConsoleApp2\ConsoleApp2.csproj", "{E59D816B-BD66-4D25-8AA9-FB001F91DCAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZeldaGame", "ConsoleApp2\ZeldaGame.csproj", "{E59D816B-BD66-4D25-8AA9-FB001F91DCAC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F1A40F22-0633-43F2-893B-42C1955B06FC}"
 	ProjectSection(SolutionItems) = preProject
