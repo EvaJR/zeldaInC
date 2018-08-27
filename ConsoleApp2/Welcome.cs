@@ -7,14 +7,25 @@ namespace ZeldaGame
 {
     class Welcome
     {
-        public void WelcomeText()
+        public void WelcomeText(Player player1)
         {
-            // Welcome player, choose a name
-            Console.WriteLine("Hello, what's your name?");
-            string UserInput = Console.ReadLine();
+            void AskPlayerName()
+            {
+                Console.WriteLine("Hello, what's your name?");
+                string UserInput = Console.ReadLine();
+                if (UserInput == " " || UserInput == "")
+                {
+                    Console.WriteLine("Please enter a name");
+                    AskPlayerName();
+                }
+                else
+                {
+                    player1.Name = (UserInput); // C# version of set.}
 
-            var player1 = new Player();
-            player1.Name = (UserInput); // C# version of set.
+                }
+            }
+
+            AskPlayerName();
 
             Console.WriteLine("Welcome to the game " + player1.Name);
         }

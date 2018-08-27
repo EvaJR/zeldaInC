@@ -4,10 +4,9 @@ using System.Text;
 
 namespace ZeldaGame
 {
-    class Item
+    class Weapon : Item
     {
-
-        public string Name { get; set; }
+        public new string Name { get; set; }
 
     }
 }

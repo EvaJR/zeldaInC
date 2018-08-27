@@ -25,7 +25,7 @@ namespace ZeldaGame
         public bool playing { get; set; } = true;
 
         // create an inventory of Items
-        public List<Item> inventory { get; set; } = new List<Item>();
+        public List<Item> Inventory { get; set; } = new List<Item>();
 
         public void Move(string UserInput)
         {
@@ -33,7 +33,6 @@ namespace ZeldaGame
             {
                 case "north":
                     CoordinateY--;
-
                     break;
                 case "east":
                     CoordinateX++;
