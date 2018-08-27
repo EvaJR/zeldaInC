@@ -16,11 +16,9 @@ namespace ZeldaGame
             }
             set
             {
-                if (value == "")
-                {
-                    Console.WriteLine("Please enter a name");
-                }
-                name = value; // add logic here
+                
+                
+                name = value; // add logic here 
             }
         }
         public int CoordinateX { get; set; } = 1;

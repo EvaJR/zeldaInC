@@ -8,13 +8,32 @@ namespace ZeldaGame
         static void Main(string[] args)
         {
             // Welcome player, choose a name
-            Console.WriteLine("Hello, what's your name?");
-            string UserInput = Console.ReadLine();
-
             var player1 = new Player();
-            player1.Name = (UserInput); // C# version of set.
 
-            Console.WriteLine("Welcome to the game " + player1.Name);
+                void AskPlayerName()
+                {
+                    Console.WriteLine("Hello, what's your name?");
+                    string UserInput = Console.ReadLine();
+                    if (UserInput == " " || UserInput == "")
+                    {
+                        Console.WriteLine("Please enter a name");
+                        AskPlayerName();
+                    }
+                    else
+                    {
+                        player1.Name = (UserInput); // C# version of set.}
+
+                    }
+                }
+
+            AskPlayerName();
+                
+
+                
+            
+
+
+                Console.WriteLine("Welcome to the game " + player1.Name);
 
             Console.WriteLine("You are standing in an open clearing in a forest");
 
