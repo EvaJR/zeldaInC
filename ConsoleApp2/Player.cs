@@ -16,14 +16,16 @@ namespace ZeldaGame
             }
             set
             {
-                
-                
+
                 name = value; // add logic here 
             }
         }
         public int CoordinateX { get; set; } = 1;
         public int CoordinateY { get; set; } = 1;
         public bool playing { get; set; } = true;
+
+        // create an inventory of Items
+        public List<Item> inventory { get; set; } = new List<Item>();
 
         public void Move(string UserInput)
         {

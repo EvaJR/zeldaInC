@@ -27,11 +27,6 @@ namespace ZeldaGame
                 }
 
             AskPlayerName();
-                
-
-                
-            
-
 
                 Console.WriteLine("Welcome to the game " + player1.Name);
 
@@ -70,6 +65,12 @@ namespace ZeldaGame
                 if(player1.CoordinateX == 1 && player1.CoordinateY == 0)
                 {
                     Console.WriteLine("You see a branch lying in the grass");
+                    player1.inventory.Add(new Item("branch"));
+                    foreach(Item item in player1.inventory)
+                    {
+                        Console.WriteLine("Your inventory now contains" + item.Name);
+                    }
+                    
                 }
                 else if(player1.CoordinateX > 2 || player1.CoordinateX < 0 || player1.CoordinateY > 2 || player1.CoordinateY < 0)
                 {
@@ -79,8 +80,7 @@ namespace ZeldaGame
             }
 
             Console.ReadLine();
-
-            
+  
         }
     }
 }
