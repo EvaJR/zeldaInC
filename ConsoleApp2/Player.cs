@@ -7,9 +7,24 @@ namespace ConsoleApp2
     class Player
     {
         // private string Name { get; set; }
-        private string Name;
-        private int CoordinateX = 1;
-        private int CoordinateY = 1;
+        private string name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if (value == "")
+                {
+                    Console.WriteLine("Please enter a name");
+                }
+                name = value; // add logic here
+            }
+        }
+        public int CoordinateX { get; set; } = 1;
+        public int CoordinateY { get; set; } = 1;
 
         public void Move(string UserInput)
         {
@@ -17,6 +32,8 @@ namespace ConsoleApp2
             {
                 case "north":
                     Console.WriteLine("North");
+                    CoordinateY++;
+
                     break;
                 case "east":
                     Console.WriteLine("East");
@@ -31,36 +48,6 @@ namespace ConsoleApp2
                     Console.WriteLine("Did you mean north, south, east or west?");
                     break;
             }
-        }
-
-        public string GetName ()
-        {
-            return Name;
-        }
-
-        public void SetName (string Name)
-        {
-            this.Name = Name;
-        }
-
-        public int GetCoordinateX()
-        {
-            return CoordinateX;
-        }
-
-        public void SetCoordinateX(int CoordinateX)
-        {
-            this.CoordinateX = CoordinateX;
-        }
-
-        public int GetCoordinateY()
-        {
-            return CoordinateY;
-        }
-
-        public void SetCoordinateY(int CoordinateY)
-        {
-            this.CoordinateY = CoordinateY;
         }
 
     }
