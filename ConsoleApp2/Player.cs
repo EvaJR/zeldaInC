@@ -32,7 +32,7 @@ namespace ZeldaGame
             switch (UserInput)
             {
                 case "north":
-                    CoordinateY++;
+                    CoordinateY--;
 
                     break;
                 case "east":
@@ -42,7 +42,7 @@ namespace ZeldaGame
                     CoordinateX--;
                     break;
                 case "south":
-                    CoordinateY--;
+                    CoordinateY++;
                     break;
                 case "q":
                     Console.WriteLine("Bye!");

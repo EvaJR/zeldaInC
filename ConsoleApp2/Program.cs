@@ -24,6 +24,13 @@ namespace ZeldaGame
                 // Console.WriteLine("You are currently at position " + player1.CoordinateX + "," + player1.CoordinateY);
                 Console.WriteLine("Where do you want to go?");
                 string UserInput2 = Console.ReadLine();
+                if (UserInput2 == "q")
+                {
+                    player1.playing = false;
+                    Console.WriteLine("Bye!");
+                    break;
+                }
+
                 player1.Move(UserInput2);
                 if(player1.CoordinateX == 1 && player1.CoordinateY == 1)
                 {
@@ -36,20 +43,25 @@ namespace ZeldaGame
                 if(player1.CoordinateX == -1 && player1.CoordinateY == 1)
                 {
                     Console.WriteLine("You see a girl being cornered by a group of trolls. What do you do?");
-                    break;
+                    Console.WriteLine("Too late! The trolls eat you.");
+                    Console.WriteLine("GAME OVER");
+                    Console.ReadLine();
+                
+                }
+                if(player1.CoordinateX == 1 && player1.CoordinateY == 0)
+                {
+                    Console.WriteLine("You see a branch lying in the grass");
                 }
                 else if(player1.CoordinateX > 2 || player1.CoordinateX < 0 || player1.CoordinateY > 2 || player1.CoordinateY < 0)
                 {
                     Console.WriteLine("You see nothing but trees around you");
                 }
 
-                
-                
             }
 
-            Console.WriteLine("Too late! The trolls eat you.");
-            Console.WriteLine("Game over");
             Console.ReadLine();
+
+            
         }
     }
 }
