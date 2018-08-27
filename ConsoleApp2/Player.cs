@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp2
+namespace ZeldaGame
 {
     class Player
     {
@@ -25,24 +25,28 @@ namespace ConsoleApp2
         }
         public int CoordinateX { get; set; } = 1;
         public int CoordinateY { get; set; } = 1;
+        public bool playing { get; set; } = true;
 
         public void Move(string UserInput)
         {
             switch (UserInput)
             {
                 case "north":
-                    Console.WriteLine("North");
                     CoordinateY++;
 
                     break;
                 case "east":
-                    Console.WriteLine("East");
+                    CoordinateX++;
                     break;
                 case "west":
-                    Console.WriteLine("West");
+                    CoordinateX--;
                     break;
                 case "south":
-                    Console.WriteLine("South");
+                    CoordinateY--;
+                    break;
+                case "q":
+                    Console.WriteLine("Bye!");
+                    playing = false;
                     break;
                 default:
                     Console.WriteLine("Did you mean north, south, east or west?");
