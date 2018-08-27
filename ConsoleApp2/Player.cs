@@ -8,6 +8,30 @@ namespace ConsoleApp2
     {
         // private string Name { get; set; }
         private string Name;
+        private int CoordinateX = 1;
+        private int CoordinateY = 1;
+
+        public void Move(string UserInput)
+        {
+            switch (UserInput)
+            {
+                case "north":
+                    Console.WriteLine("North");
+                    break;
+                case "east":
+                    Console.WriteLine("East");
+                    break;
+                case "west":
+                    Console.WriteLine("West");
+                    break;
+                case "south":
+                    Console.WriteLine("South");
+                    break;
+                default:
+                    Console.WriteLine("Did you mean north, south, east or west?");
+                    break;
+            }
+        }
 
         public string GetName ()
         {
@@ -17,6 +41,26 @@ namespace ConsoleApp2
         public void SetName (string Name)
         {
             this.Name = Name;
+        }
+
+        public int GetCoordinateX()
+        {
+            return CoordinateX;
+        }
+
+        public void SetCoordinateX(int CoordinateX)
+        {
+            this.CoordinateX = CoordinateX;
+        }
+
+        public int GetCoordinateY()
+        {
+            return CoordinateY;
+        }
+
+        public void SetCoordinateY(int CoordinateY)
+        {
+            this.CoordinateY = CoordinateY;
         }
 
     }

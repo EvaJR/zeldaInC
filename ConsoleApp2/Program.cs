@@ -14,6 +14,12 @@ namespace ConsoleApp2
             player1.SetName(UserInput);
 
             Console.WriteLine("Welcome to the game " + player1.GetName());
+
+            Console.WriteLine("You are currently at position " + player1.GetCoordinateX() + "," + player1.GetCoordinateY());
+            Console.WriteLine("Where do you want to go?");
+            string UserInput2 = Console.ReadLine();
+
+            player1.Move(UserInput2);
             Console.ReadLine();
         }
     }
