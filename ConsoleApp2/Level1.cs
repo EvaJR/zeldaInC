@@ -47,8 +47,7 @@ namespace ZeldaGame
                 if (player1.CoordinateX == 1 && player1.CoordinateY == 0 && BranchInClearing)
                 {
                     Console.WriteLine("You see a branch lying in the grass");
-                    var branch = new Item();
-                    branch.Name = "branch";
+                    Item branch = new Weapon("branch");
                     player1.Inventory.Add(branch);
                     BranchInClearing = false;
                     foreach (Item item in player1.Inventory)

@@ -9,5 +9,10 @@ namespace ZeldaGame
 
         public string Name { get; set; }
 
+        public Item(string Name)
+        {
+            this.Name = Name;
+        }
+
     }
 }

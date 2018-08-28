@@ -6,7 +6,9 @@ namespace ZeldaGame
 {
     class Weapon : Item
     {
-        public new string Name { get; set; }
+        public Weapon(string name) : base(name)
+            {
+            }
 
     }
 }
