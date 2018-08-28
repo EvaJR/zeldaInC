@@ -18,6 +18,13 @@ namespace ZeldaGame
                     Console.WriteLine("Please enter a name");
                     AskPlayerName();
                 }
+
+                else if (UserInput.Length > 20 )
+                {
+                    Console.WriteLine("Your name is too long");
+                    AskPlayerName();
+
+                }
                 else
                 {
                     player1.Name = (UserInput); // C# version of set.}

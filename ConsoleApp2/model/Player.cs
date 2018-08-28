@@ -16,8 +16,10 @@ namespace ZeldaGame
             }
             set
             {
-
-                name = value; // add logic here 
+               // if (Name.Length < 20) // this logic is now in Welcome > NullPointerException? hm
+                {
+                    name = value; // add logic here 
+                }
             }
         }
         public int CoordinateX { get; set; } = 1;
