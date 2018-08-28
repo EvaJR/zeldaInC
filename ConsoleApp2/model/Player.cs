@@ -55,6 +55,9 @@ namespace ZeldaGame
                 case "i":
                     ShowInventory(Inventory);
                     break;
+                case "e":
+                    EquipWeapon(Inventory);
+                    break;
                 default:
                     Console.WriteLine("Did you mean north, south, east or west?");
                     break;
@@ -75,14 +78,42 @@ namespace ZeldaGame
             {
                 if (item is Weapon)
                 {
-                    Console.WriteLine("Weapons:");
+                    Console.WriteLine("Weapons (press e to equip a weapon)");
                     Console.WriteLine(" * " + item.Name);
                 }
             }
+            Console.WriteLine("Currently equipped: " + EquippedWeapon.Name);
 
 
         }
+        
+        public void EquipWeapon(List<Item> inventory)
+        {
+            List<Weapon> weaponList = new List<Weapon>();
+            foreach (Item item in inventory)
+            {
+                if (item is Weapon)
+                {
+                    weaponList.Add(item as Weapon);
+                    int count = 0;
 
+                    foreach (Weapon weapon in weaponList)
+                    {
+                        count += 1;
+                        Console.WriteLine("Which weapon do you want to equip?");
+                        Console.WriteLine(count + ". " + weapon.Name);
+                        
+                        int UserChoice = Convert.ToInt32(Console.ReadLine());
+                        EquippedWeapon = weaponList[UserChoice];
+
+                    }
+                }
+            }
+
+            
+
+
+        }
 
         public void PlayOcarina()
         {
