@@ -69,17 +69,13 @@ namespace ZeldaGame
             {
                 Console.WriteLine("Your inventory is empty");
             }
-            foreach (Item item in inventory)
-            {
-                Console.WriteLine("Your inventory now contains " + item.Name);
-            }
 
             foreach (Item item in inventory)
             {
                 if (item is Weapon)
                 {
-    
-                    Console.WriteLine("Weapon:" + item.Name);
+                    Console.WriteLine("Weapons:");
+                    Console.WriteLine(" * " + item.Name);
                 }
             }
 
