@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ZeldaGame.model;
 
 namespace ZeldaGame
 {
@@ -28,6 +29,7 @@ namespace ZeldaGame
 
         // create an inventory of Items
         public List<Item> Inventory { get; set; } = new List<Item>();
+        public int RupeeTotal { get; set; } = 0;
 
         public void Move(string UserInput)
         {
@@ -49,10 +51,39 @@ namespace ZeldaGame
                     Console.WriteLine("Bye!");
                     playing = false;
                     break;
+                case "i":
+                    ShowInventory(Inventory);
+                    break;
                 default:
                     Console.WriteLine("Did you mean north, south, east or west?");
                     break;
             }
+        }
+
+        public void ShowInventory(List<Item> inventory)
+        {
+            
+            Console.WriteLine("*** INVENTORY ***");
+            Console.WriteLine("Rupees: " + RupeeTotal);
+            if (inventory.Count == 0)
+            {
+                Console.WriteLine("Your inventory is empty");
+            }
+            foreach (Item item in inventory)
+            {
+                Console.WriteLine("Your inventory now contains " + item.Name);
+            }
+
+            foreach (Item item in inventory)
+            {
+                if (item is Weapon)
+                {
+    
+                    Console.WriteLine("Weapon:" + item.Name);
+                }
+            }
+
+
         }
 
     }

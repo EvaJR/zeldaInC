@@ -4,14 +4,11 @@ using System.Text;
 
 namespace ZeldaGame.model
 {
-    class Rupee
+    class Key : Item
     {
-
-        public int Value { get; set; }
-
-        public Rupee(int value)
+        public Key(string name) : base(name)
         {
-            Value = value;
+
         }
     }
 }

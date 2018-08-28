@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ZeldaGame.model;
 
 namespace ZeldaGame
 {
@@ -13,6 +14,8 @@ namespace ZeldaGame
             Console.WriteLine("You are standing in an open clearing in a forest");
 
             bool BranchInClearing = true;
+            bool RupeeInClearing = true;
+            bool Rupee2InClearing = true;
 
             while (player1.playing)
             {
@@ -20,18 +23,9 @@ namespace ZeldaGame
                 // Console.WriteLine("You are currently at position " + player1.CoordinateX + "," + player1.CoordinateY);
                 Console.WriteLine("Where do you want to go?");
                 string UserInput2 = Console.ReadLine();
-                if (UserInput2 == "q")
-                {
-                    player1.playing = false;
-                    Console.WriteLine("Bye!");
-                    break;
-                }
 
                 player1.Move(UserInput2);
-                if (player1.CoordinateX == 1 && player1.CoordinateY == 1)
-                {
-                    Console.WriteLine("You are standing in an open clearing in a forest");
-                }
+
                 if (player1.CoordinateX == 0 && player1.CoordinateY == 1)
                 {
                     Console.WriteLine("You hear screaming in the west: " + player1.Name + "!!!");
@@ -50,10 +44,25 @@ namespace ZeldaGame
                     Item branch = new Weapon("branch");
                     player1.Inventory.Add(branch);
                     BranchInClearing = false;
-                    foreach (Item item in player1.Inventory)
-                    {
-                        Console.WriteLine("Your inventory now contains " + item.Name);
-                    }
+                    player1.ShowInventory(player1.Inventory);
+
+                }
+
+                if (player1.CoordinateX == 2 && player1.CoordinateY == 0 && RupeeInClearing)
+                {
+                    Console.WriteLine("You pick up a shiny green rupee");
+                    Rupee rupee = new Rupee(1);
+                    player1.RupeeTotal += rupee.Value;
+                    RupeeInClearing = false;
+
+                }
+
+                if (player1.CoordinateX == 2 && player1.CoordinateY == 1 && Rupee2InClearing)
+                {
+                    Console.WriteLine("You pick up a shiny blue rupee");
+                    Rupee rupee = new Rupee(5);
+                    player1.RupeeTotal += rupee.Value;
+                    Rupee2InClearing = false;
 
                 }
                 else if (player1.CoordinateX > 2 || player1.CoordinateX < 0 || player1.CoordinateY > 2 || player1.CoordinateY < 0)
