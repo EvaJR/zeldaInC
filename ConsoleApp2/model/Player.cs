@@ -82,5 +82,10 @@ namespace ZeldaGame
 
         }
 
+        public void PlayOcarina()
+        {
+            Console.Beep();
+        }
+
     }
 }

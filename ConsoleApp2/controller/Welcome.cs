@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using ZeldaGame.model;
 
 namespace ZeldaGame
 {
@@ -9,6 +10,11 @@ namespace ZeldaGame
     {
         public void WelcomeText(Player player1)
         {
+            Ocarina test = new Ocarina();
+            test.PlayMaryHadALittleLamb();
+            
+
+
             void AskPlayerName()
             {
                 Console.WriteLine("Hello, what's your name?");
