@@ -34,25 +34,29 @@ namespace ZeldaGame.model
 
         public void PlayZeldaTune()
         {
-            // Declare the first few notes of the song, "Mary Had A Little Lamb".
-            Note[] Mary =
+            // Declare the first few notes of the song, "Zelda's lullaby".
+            Note[] Lullaby =
                 {
-        new Note(Tone.B, Duration.QUARTER),
-        new Note(Tone.A, Duration.QUARTER),
-        new Note(Tone.GbelowC, Duration.QUARTER),
-        new Note(Tone.A, Duration.QUARTER),
-        new Note(Tone.B, Duration.QUARTER),
-        new Note(Tone.B, Duration.QUARTER),
-        new Note(Tone.B, Duration.HALF),
-        new Note(Tone.A, Duration.QUARTER),
-        new Note(Tone.A, Duration.QUARTER),
-        new Note(Tone.A, Duration.HALF),
-        new Note(Tone.B, Duration.QUARTER),
-        new Note(Tone.D, Duration.QUARTER),
-        new Note(Tone.D, Duration.HALF)
+        new Note(Tone.E, Duration.HALF),
+        new Note(Tone.G, Duration.QUARTER),
+        new Note(Tone.D, Duration.HALF),
+        new Note(Tone.C, Duration.EIGHTH),
+        new Note(Tone.D, Duration.EIGHTH),
+        new Note(Tone.E, Duration.HALF),
+        new Note(Tone.G, Duration.QUARTER),
+        new Note(Tone.D, Duration.THREEQUARTER),
+        new Note(Tone.E, Duration.HALF),
+        new Note(Tone.G, Duration.QUARTER),
+        new Note(Tone.Dhigh, Duration.HALF),
+        new Note(Tone.Chigh, Duration.QUARTER),
+        new Note(Tone.G, Duration.HALF),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.E, Duration.EIGHTH),
+        new Note(Tone.D, Duration.THREEQUARTER),
+
         };
             // Play the song
-            Play(Mary);
+            Play(Lullaby);
         }
 
         // Play the notes in a song.
@@ -85,12 +89,17 @@ namespace ZeldaGame.model
             Fsharp = 370,
             G = 392,
             Gsharp = 415,
+            Ahigh = 440,
+            Bhigh = 494,
+            Chigh = 523,
+            Dhigh = 587
         }
 
         // Define the duration of a note in units of milliseconds.
         protected enum Duration
         {
             WHOLE = 1600,
+            THREEQUARTER = WHOLE/4*3,
             HALF = WHOLE / 2,
             QUARTER = HALF / 2,
             EIGHTH = QUARTER / 2,

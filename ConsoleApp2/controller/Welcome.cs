@@ -10,8 +10,11 @@ namespace ZeldaGame
     {
         public void WelcomeText(Player player1)
         {
+
+            Console.WriteLine("*** ZELDA IN C# ***");
+
             Ocarina test = new Ocarina();
-            test.PlayMaryHadALittleLamb();
+            test.PlayZeldaTune();
             
 
 
