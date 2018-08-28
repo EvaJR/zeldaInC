@@ -16,8 +16,6 @@ namespace ZeldaGame
             Ocarina test = new Ocarina();
             test.PlayZeldaTune();
             
-
-
             void AskPlayerName()
             {
                 Console.WriteLine("Hello, what's your name?");
@@ -46,6 +44,5 @@ namespace ZeldaGame
             Console.WriteLine("Welcome to the game " + player1.Name);
         }
 
-   
     }
 }

@@ -10,23 +10,22 @@ namespace ZeldaGame
         static void Main(string[] args)
         {
 
-            // test MVC model player
+            // *** test MVC model player
 
-            //var player = new Player();
 
-            //player.Name = "Test";
+            ////var view = new PlayerView();
 
-            //var view = new PlayerView();
+            ////var controller = new PlayerController(player, view);
 
-            //var controller = new PlayerController(player, view);
-
-            //controller.UpdateView();
+            ////controller.UpdateView();
 
 
             // Welcome player, choose a name
             var player1 = new Player();
 
+            var view = new PlayerView();
 
+            var playerController = new PlayerController(player1, view);
 
             var welcome = new Welcome();
             welcome.WelcomeText(player1);

@@ -30,6 +30,7 @@ namespace ZeldaGame
         // create an inventory of Items
         public List<Item> Inventory { get; set; } = new List<Item>();
         public int RupeeTotal { get; set; } = 0;
+        public Weapon EquippedWeapon { get; set; }
 
         public void Move(string UserInput)
         {
@@ -81,6 +82,7 @@ namespace ZeldaGame
 
 
         }
+
 
         public void PlayOcarina()
         {

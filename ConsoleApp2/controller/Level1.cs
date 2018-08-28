@@ -33,8 +33,22 @@ namespace ZeldaGame
                 if (player1.CoordinateX == -1 && player1.CoordinateY == 1)
                 {
                     Console.WriteLine("You see a girl being cornered by a group of trolls. What do you do?");
-                    Console.WriteLine("Too late! The trolls eat you.");
-                    Console.WriteLine("GAME OVER");
+
+                    if(player1.Inventory.Count == 0)
+                    {
+                        Console.WriteLine("You desperately look around for something to use as a weapon...");
+                        Console.WriteLine("Too late! The trolls eat you.");
+                        Console.WriteLine("GAME OVER");
+
+                    }
+                    else
+                    {
+                        Console.WriteLine("Your equipped weapon is " + player1.EquippedWeapon.Name);
+                        Console.WriteLine("You hit the trolls over the head with your " + player1.EquippedWeapon.Name);
+                        Console.WriteLine("You save the girl");
+                    }
+                    
+
                     Console.ReadLine();
 
                 }
@@ -43,6 +57,7 @@ namespace ZeldaGame
                     Console.WriteLine("You see a branch lying in the grass");
                     Item branch = new Weapon("branch");
                     player1.Inventory.Add(branch);
+                    player1.EquippedWeapon = branch as Weapon;
                     BranchInClearing = false;
                     player1.ShowInventory(player1.Inventory);
 
