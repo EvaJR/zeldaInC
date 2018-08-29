@@ -15,16 +15,17 @@ namespace ZeldaGame
         {
             Tile[,] Array2D = new Tile[3, 3];
             var middle = new Tile("You see a sword in a pedestal");
+            middle.HasSword = true;
             var back = new Tile("There's a girl standing in the cave ");
             var cave = new Tile("You are inside a cave");
             var entrance = new Tile("You see the cave entrance to the south");
             Array2D[1, 1] = middle; 
-            Array2D[0, 1] = back;
-            Array2D[2, 1] = entrance;
+            Array2D[1, 0] = back;
+            Array2D[1, 2] = entrance;
             for (int i = 0; i < 3; i++)
             {
-                Array2D[i, 0] = cave;
-                Array2D[i, 2] = cave;
+                Array2D[0, i] = cave;
+                Array2D[2, i] = cave;
             }
 
             return Array2D;

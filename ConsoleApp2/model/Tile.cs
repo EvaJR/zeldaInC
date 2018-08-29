@@ -8,6 +8,8 @@ namespace ZeldaGame.model
     {
         public string Description { get; set; }
 
+        public bool HasSword { get; set; }
+
         public Tile (string Description)
         {
             this.Description = Description;

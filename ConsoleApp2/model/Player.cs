@@ -120,5 +120,10 @@ namespace ZeldaGame
             Console.Beep();
         }
 
+        public void EquipSword(object sender, EventArgs e)
+        {
+            EquippedWeapon = new Weapon("sword");
+        }
+
     }
 }
