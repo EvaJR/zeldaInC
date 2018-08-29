@@ -26,13 +26,9 @@ namespace ZeldaGame.controller
 
             // drop player at girl standing in cave (default position: 1,1)
             player1.CoordinateY = 0;
+            player1.CoordinateX = 1;
 
             bool SwordInCave = true;
-
-            
-
-
-
 
             while (player1.playing)
             {
@@ -46,8 +42,6 @@ namespace ZeldaGame.controller
                     for (int l = 0; l < level2Map.GetLength(1); l++)
                         Console.WriteLine(level2Map[k, l].Description);
                */
-
-                
 
                 Console.WriteLine(level2Map[player1.CoordinateX, player1.CoordinateY].Description);
                 Console.WriteLine("You are currently at position " + player1.CoordinateX + "," + player1.CoordinateY);

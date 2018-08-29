@@ -76,9 +76,10 @@ namespace ZeldaGame
 
             foreach (Item item in inventory)
             {
+                Console.WriteLine("Weapons (press e to equip a weapon)");
                 if (item is Weapon)
                 {
-                    Console.WriteLine("Weapons (press e to equip a weapon)");
+                    
                     Console.WriteLine(" * " + item.Name);
                 }
             }
@@ -95,23 +96,23 @@ namespace ZeldaGame
                 if (item is Weapon)
                 {
                     weaponList.Add(item as Weapon);
-                    int count = 0;
 
-                    foreach (Weapon weapon in weaponList)
-                    {
-                        count += 1;
-                        Console.WriteLine("Which weapon do you want to equip?");
-                        Console.WriteLine(count + ". " + weapon.Name);
-                        
-                        int UserChoice = Convert.ToInt32(Console.ReadLine());
-                        EquippedWeapon = weaponList[UserChoice];
-
-                    }
                 }
             }
+        int count = 0;
+        Console.WriteLine("Which weapon do you want to equip?");
 
-            
+        foreach (Weapon weapon in weaponList)
+        {
+        count += 1;
+        Console.WriteLine(count + ". " + weapon.Name);
 
+        }
+        int UserChoice = Convert.ToInt32(Console.ReadLine());
+        if (UserChoice >= 1 && UserChoice <= count)
+        {
+        EquippedWeapon = weaponList[UserChoice - 1];
+        }
 
         }
 
@@ -122,7 +123,12 @@ namespace ZeldaGame
 
         public void EquipSword(object sender, EventArgs e)
         {
-            EquippedWeapon = new Weapon("sword");
+            Item sword = new Weapon("sword");
+            
+            Inventory.Add(sword);
+            EquippedWeapon = sword as Weapon;
+            
+            
         }
 
     }

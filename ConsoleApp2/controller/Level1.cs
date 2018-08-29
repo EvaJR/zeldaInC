@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ZeldaGame.controller;
 using ZeldaGame.model;
 
 namespace ZeldaGame
@@ -46,6 +47,9 @@ namespace ZeldaGame
                         Console.WriteLine("Your equipped weapon is " + player1.EquippedWeapon.Name);
                         Console.WriteLine("You hit the trolls over the head with your " + player1.EquippedWeapon.Name);
                         Console.WriteLine("You save the girl");
+
+                        var level2 = new Level2();
+                        level2.PlayLevel(player1);
                     }
                     
 
