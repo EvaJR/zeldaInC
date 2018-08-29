@@ -8,7 +8,6 @@ namespace ZeldaGame
     class Map
     {
         
-
         // add tiles to the array
 
         public Tile[,] BuildMap()
@@ -32,10 +31,6 @@ namespace ZeldaGame
 
 
         }
-
-       
-
-        
 
         // or use a 2D List?
 
