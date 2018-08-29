@@ -27,11 +27,16 @@ namespace ZeldaGame
 
             var playerController = new PlayerController(player1, view);
 
+            var level2 = new Level2();
+            level2.PlayLevel(player1);
+
             var welcome = new Welcome();
             welcome.WelcomeText(player1);
 
             var level1 = new Level1();
             level1.PlayLevel1(player1);
+
+
 
         }
     }

@@ -6,5 +6,11 @@ namespace ZeldaGame.model
 {
     class Tile
     {
+        public string Description { get; set; }
+
+        public Tile (string Description)
+        {
+            this.Description = Description;
+        }
     }
 }
