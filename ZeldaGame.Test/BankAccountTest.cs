@@ -7,10 +7,12 @@ namespace ZeldaGame.Test
     [TestClass]
     public class BankAccountTest
     {
+        BankAccount bankaccount; // class variable
+
         [TestInitialize]
         public void SetUp()
         {
-            BankAccount bankaccount = new BankAccount("test", 100);
+            bankaccount = new BankAccount("test", 100);
         }
         
         [TestMethod]
