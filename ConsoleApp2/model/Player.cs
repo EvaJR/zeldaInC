@@ -109,7 +109,7 @@ namespace ZeldaGame
         Console.WriteLine(count + ". " + weapon.Name);
 
         }
-        int UserChoice = Convert.ToInt32(Console.ReadLine());
+        int UserChoice = Convert.ToInt32(Console.ReadLine()); //TODO add tryParse? 
         if (UserChoice >= 1 && UserChoice <= count)
         {
         EquippedWeapon = weaponList[UserChoice - 1];
