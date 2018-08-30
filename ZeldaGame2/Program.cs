@@ -7,7 +7,9 @@ namespace ZeldaGame2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("ZELDA IN C#");
+            Console.WriteLine("*** ZELDA IN C# ***");
+
+            
             var game = new GameController();
             game.Start();
         }

@@ -1,23 +1,65 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using ZeldaGame2.model;
 
 namespace ZeldaGame2.controller
-{
+{   
+    // class which controls gameflow
     class GameController
     {
+
+        // declare classes to control from this class
         public Player Player { get; set; }
         public Map Map { get; set; }
-        public bool Playing { get; set; } = true;
         Tile CurrentTile { get; set; }
+
+        // boolean for in while loop to keep playing game
+        public bool Playing { get; set; } = true;
 
         public void Start()
         {
 
-            Player = new Player(0, 0);
+            // welcome
+            Ocarina Ocarina = new Ocarina();
+
+            // play music during asking player name (thread)
+            Task.Run(() => Ocarina.PlayZeldaTune());
+
+            // new player with initial x,y coordinates
+            Player = new Player(3, 3);
+
+            void AskPlayerName()
+                {
+                    Console.WriteLine("Hello, what's your name?");
+                    string UserInput = Console.ReadLine();
+                    if (UserInput == " " || UserInput == "")
+                    {
+                        Console.WriteLine("Please enter a name");
+                        AskPlayerName();
+                    }
+                    else if (UserInput.Length > 20)
+                    {
+                        Console.WriteLine("Your name is too long");
+                        AskPlayerName();
+                    }
+                    else
+                    {
+                        Player.Name = (UserInput); // C# version of set.}
+
+                    }
+                }
+
+                AskPlayerName();
+
+                Console.WriteLine("Welcome to the game " + Player.Name);
+
+            // map with tiles
             Map = new Map();
             Map.BuildMap();
+
+            // define current tile and print description
             CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
             CurrentTile.Print();
 
@@ -29,10 +71,12 @@ namespace ZeldaGame2.controller
         {
             while(Playing)
             {
+                // user input, caps insensitive
                 var input = Console.ReadLine().ToLower();
 
                 switch(input)
                 {
+                    // TODO: write Move function to DRY
                     case ("north"):
                         if(Map.CanMoveToTile(Player.CoordinateX, Player.CoordinateY - 1))
                         {

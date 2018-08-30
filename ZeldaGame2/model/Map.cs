@@ -6,33 +6,44 @@ namespace ZeldaGame2.model
 {
     class Map
     {
-        public Tile[,] MapTiles { get; set; } = new Tile[3, 3];
+        // 2D array containing Tile items
+        public Tile[,] MapTiles { get; set; } = new Tile[6, 6];
 
+        // TODO rewrite to a constructor setting height & width of map
+
+        // TODO write a GenerateMap() function with Math.random
         public void BuildMap()
         {
-            MapTiles[0, 0] = new Tile("clearing");
-            MapTiles[0, 1] = new Tile("clearing");
-            MapTiles[0, 2] = new Tile("clearing");
+            var forest = new Tile("You see nothing but trees around you");
 
-            MapTiles[1, 0] = new Tile("clearing");
-            MapTiles[1, 1] = new Tile("clearing");
-            MapTiles[1, 2] = new Tile("clearing");
+            // filling a 2D array with forest // TODO same thing with random numbers
+            for (int row = 0; row < 6; row++)
+            {
+                for (int column = 0; column < 6; column++)
+                {
+                    MapTiles[row, column] = forest;
+                }
+            }
 
-            MapTiles[2, 0] = new Tile("clearing");
-            MapTiles[2, 1] = new Tile("clearing");
-            MapTiles[2, 2] = new Tile("clearing");
+            // overwriting a few forest tiles with special tiles
+
+            MapTiles[3, 3] = new Tile("You are standing in a clearing in the forest");
+            MapTiles[3, 2] = new Tile("You see a branch lying on the ground");
+            MapTiles[4, 2] = new Tile("You find a shiny green rupee");
+            MapTiles[4, 3] = new Tile("You find a shiny blue rupee");
+            MapTiles[4, 3] = new Tile("You find a shiny blue rupee");
+            MapTiles[2, 3] = new Tile("You hear screaming to the west");
+            MapTiles[1, 3] = new Tile("You see a girl being cornered by a group of trolls. What do you do?");
+
 
         }
 
+        // check when player falls off the map (used in game controller)
         public bool CanMoveToTile(int ToX, int ToY)
         {
-
-            return ToX >= 0 && ToX <= 2 && ToY >= 0 && ToY <= 2;
+            // TODO use MapTiles length here for maxvalue
+            return ToX >= 0 && ToX < 6 && ToY >= 0 && ToY < 6;
         }
-
-        
-
-
 
     }
 }

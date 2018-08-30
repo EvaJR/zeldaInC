@@ -8,6 +8,7 @@ namespace ZeldaGame2.model
     {
         public int CoordinateX { get; set; }
         public int CoordinateY { get; set; }
+        public string Name { get; set; }
 
         public Player(int x, int y)
         {

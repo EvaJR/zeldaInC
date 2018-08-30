@@ -7,6 +7,8 @@ namespace ZeldaGame2.model
     class Tile
     {
         public string Description { get; set; }
+        public bool HasRupee { get; set; }
+        //public Item ItemOnTile { get; set; }
 
         public Tile (string description)
         {
