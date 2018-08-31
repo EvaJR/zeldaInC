@@ -22,9 +22,11 @@ namespace ZeldaGame2.controller
 
             // welcome
             Ocarina Ocarina = new Ocarina();
-
+           
             // play music during asking player name (thread) Thanks Hielke!
             Task.Run(() => Ocarina.PlayZeldaTune());
+
+
 
             // new player with initial x,y coordinates: randomize?
             
@@ -204,8 +206,11 @@ namespace ZeldaGame2.controller
 
         public void End()
         {
+            
             Console.WriteLine("Bye!");
             Playing = false;
+            Ocarina Ocarina = new Ocarina();
+            Ocarina.PlaySongOfStorms();
             Console.ReadLine();
             Start();
         }

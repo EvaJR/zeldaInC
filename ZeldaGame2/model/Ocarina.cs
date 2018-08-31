@@ -37,6 +37,78 @@ namespace ZeldaGame2.model
             Play(Lullaby);
         }
 
+        public void PlaySongOfStorms()
+        {
+            // Declare the first few notes of the song, "Song of storms".
+            Note[] Lullaby =
+                {
+        new Note(Tone.D, Duration.EIGHTH),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.Dhigh, Duration.HALF),
+
+        new Note(Tone.D, Duration.EIGHTH),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.Dhigh, Duration.HALF),
+
+        new Note(Tone.Ehigh, Duration.THREEEIGHT),
+        new Note(Tone.Fhigh, Duration.EIGHTH),
+        new Note(Tone.Ehigh, Duration.EIGHTH),
+        new Note(Tone.Fhigh, Duration.EIGHTH),
+
+        new Note(Tone.Ehigh, Duration.EIGHTH),
+        new Note(Tone.Chigh, Duration.EIGHTH),
+        new Note(Tone.Ahigh, Duration.QUARTER),
+        new Note(Tone.REST, Duration.QUARTER),
+
+        new Note(Tone.Ahigh, Duration.QUARTER),
+        new Note(Tone.D, Duration.QUARTER),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.G, Duration.EIGHTH),
+
+        new Note(Tone.Ahigh, Duration.THREEQUARTER),
+
+        new Note(Tone.Ahigh, Duration.QUARTER),
+        new Note(Tone.D, Duration.QUARTER),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.G, Duration.EIGHTH),
+
+        new Note(Tone.E, Duration.THREEQUARTER),
+
+        new Note(Tone.D, Duration.EIGHTH),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.Dhigh, Duration.HALF),
+
+        new Note(Tone.D, Duration.EIGHTH),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.Dhigh, Duration.HALF),
+
+        new Note(Tone.Ehigh, Duration.THREEEIGHT),
+        new Note(Tone.Fhigh, Duration.EIGHTH),
+        new Note(Tone.Ehigh, Duration.EIGHTH),
+        new Note(Tone.Fhigh, Duration.EIGHTH),
+
+        new Note(Tone.Ehigh, Duration.EIGHTH),
+        new Note(Tone.Chigh, Duration.EIGHTH),
+        new Note(Tone.Ahigh, Duration.QUARTER),
+        new Note(Tone.REST, Duration.QUARTER),
+
+        new Note(Tone.Ahigh, Duration.QUARTER),
+        new Note(Tone.D, Duration.QUARTER),
+        new Note(Tone.F, Duration.EIGHTH),
+        new Note(Tone.G, Duration.EIGHTH),
+
+        new Note(Tone.Ahigh, Duration.HALF),
+        new Note(Tone.Ahigh, Duration.QUARTER),
+
+        new Note(Tone.D, Duration.THREEQUARTER),
+
+
+
+        };
+            // Play the song
+            Play(Lullaby);
+        }
+
         // Play the notes in a song.
         protected static void Play(Note[] tune)
         {
@@ -70,7 +142,9 @@ namespace ZeldaGame2.model
             Ahigh = 440,
             Bhigh = 494,
             Chigh = 523,
-            Dhigh = 587
+            Dhigh = 587,
+            Ehigh = 659,
+            Fhigh = 698
         }
 
         // Define the duration of a note in units of milliseconds.
@@ -81,6 +155,7 @@ namespace ZeldaGame2.model
             HALF = WHOLE / 2,
             QUARTER = HALF / 2,
             EIGHTH = QUARTER / 2,
+            THREEEIGHT = EIGHTH * 3,
             SIXTEENTH = EIGHTH / 2,
         }
 
