@@ -74,9 +74,10 @@ namespace ZeldaGame
                 Console.WriteLine("Your inventory is empty");
             }
 
+            Console.WriteLine("Weapons (press e to equip a weapon)");
             foreach (Item item in inventory)
             {
-                Console.WriteLine("Weapons (press e to equip a weapon)");
+                
                 if (item is Weapon)
                 {
                     
@@ -108,7 +109,7 @@ namespace ZeldaGame
         Console.WriteLine(count + ". " + weapon.Name);
 
         }
-        int UserChoice = Convert.ToInt32(Console.ReadLine());
+        int UserChoice = Convert.ToInt32(Console.ReadLine()); //TODO add tryParse? 
         if (UserChoice >= 1 && UserChoice <= count)
         {
         EquippedWeapon = weaponList[UserChoice - 1];
