@@ -31,9 +31,14 @@ namespace ZeldaGame2.model
             MapTiles[3, 2] = new Tile("You see a branch lying on the ground");
             MapTiles[4, 2] = new Tile("You find a shiny green rupee");
             MapTiles[4, 3] = new Tile("You find a shiny blue rupee");
-            MapTiles[4, 3] = new Tile("You find a shiny blue rupee");
             MapTiles[2, 3] = new Tile("You hear screaming to the west");
             MapTiles[1, 3] = new Tile("You see a girl being cornered by a group of trolls. What do you do?");
+
+            // link items to tiles
+
+            MapTiles[4, 2].HasRupee = true;
+            MapTiles[4, 3].HasRupee = true;
+            MapTiles[3, 2].ItemOnTile = new Item("branch");
 
 
         }

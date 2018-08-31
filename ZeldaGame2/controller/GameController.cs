@@ -71,6 +71,7 @@ namespace ZeldaGame2.controller
         {
             while(Playing)
             {
+                Console.WriteLine("Where do you want to go?");
                 // user input, caps insensitive
                 var input = Console.ReadLine().ToLower();
 
@@ -125,13 +126,30 @@ namespace ZeldaGame2.controller
                             Console.WriteLine("You can't go there");
                         }
                         break;
+                    case ("i"):
+                        Player.ShowInventory();
+                        break;
                     case ("quit"):
                         End();
                         break;
                     default:
-                        Console.WriteLine("Huh?");
+                        Console.WriteLine("Huh? Did you mean north, south, east or west?");
                         break;
 
+                }
+
+                if(CurrentTile.HasRupee)
+                {
+                    Player.RupeeTotal++;
+                    CurrentTile.HasRupee = false;
+                    CurrentTile.Description = "";
+                }
+
+                if(CurrentTile.ItemOnTile != null)
+                {
+                    Player.Inventory.Add(CurrentTile.ItemOnTile);
+                    CurrentTile.ItemOnTile = null;
+                    CurrentTile.Description = "";
                 }
                     
 
