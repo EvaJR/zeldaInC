@@ -9,7 +9,6 @@ namespace ZeldaGame2.controller
     // class which controls gameflow
     class GameController
     {
-
         // declare classes to control from this class
         public Player Player { get; set; }
         public Map Map { get; set; }
@@ -26,7 +25,6 @@ namespace ZeldaGame2.controller
 
             // play music during asking player name (thread) Thanks Hielke!
             Task.Run(() => Ocarina.PlayZeldaTune());
-
 
             // new player with initial x,y coordinates: randomize?
             
@@ -109,8 +107,8 @@ namespace ZeldaGame2.controller
         public void ChaosGame()
         {
             Random random = new Random();
-            int width = random.Next(1, 11); // creates a number between 1 and 10
-            int height = random.Next(1, 11);
+            int width = random.Next(2, 11); // creates a number between 2 and 10
+            int height = random.Next(2, 11);
 
             Map = new Map(width, height);
             Map.GenerateMap();
@@ -162,6 +160,7 @@ namespace ZeldaGame2.controller
                         break;
                     default:
                         Console.WriteLine("Huh? Did you mean north, south, east or west?");
+                        Console.WriteLine("To check inventory, press 'i'. Press 'q' to exit the game");
                         break;
 
                 }
@@ -208,6 +207,7 @@ namespace ZeldaGame2.controller
             Console.WriteLine("Bye!");
             Playing = false;
             Console.ReadLine();
+            Start();
         }
 
         public void Move(int deltaX, int deltaY)

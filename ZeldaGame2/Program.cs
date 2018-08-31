@@ -9,7 +9,6 @@ namespace ZeldaGame2
         {
             Console.WriteLine("*** ZELDA IN C# ***");
 
-            
             var game = new GameController();
             game.Start();
         }

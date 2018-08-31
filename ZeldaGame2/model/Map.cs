@@ -14,9 +14,6 @@ namespace ZeldaGame2.model
         public int RandomX { get; set; }
         public int RandomY { get; set; }
 
-
-        //public Tile[,] MapTiles { get; set; } = new Tile[6, 6];
-
         // constructor setting height & width of map
         public Map(int width, int height)
         {
@@ -25,13 +22,11 @@ namespace ZeldaGame2.model
             MapTiles = new Tile[Width, Height];
         }
 
-        // TODO write a GenerateMap() function with Math.random
         public void BuildMap()
         {
             var forest = new Tile("You see nothing but trees around you");
 
             // filling a 2D array with forest // TODO same thing with random numbers
-            // TODO check if width/heigth at the correct loop now
             for (int row = 0; row < Height; row++)
             {
                 for (int column = 0; column < Width; column++)
@@ -64,6 +59,7 @@ namespace ZeldaGame2.model
             return ToX >= 0 && ToX < Width && ToY >= 0 && ToY < Height;
         }
 
+        // Randomized map for CHAOS mode
         public void GenerateMap()
         {
             var forest = new Tile("You see nothing but trees around you");
@@ -77,7 +73,7 @@ namespace ZeldaGame2.model
                 }
             }
 
-            // overwriting a few forest tiles with special tiles, also randomized
+            // overwriting a few forest tiles with special tiles, also randomized. can also overwrite each other....
 
             GenerateRandomCoordinates();
             MapTiles[RandomX, RandomY] = new Tile("You are standing in a clearing in the forest");
@@ -104,7 +100,7 @@ namespace ZeldaGame2.model
         public void GenerateRandomCoordinates()
         {
             Random random = new Random();
-            this.RandomX = random.Next(Width); // creates a number 0 up to Width
+            this.RandomX = random.Next(Width); // creates a number from 0 up to Width
             this.RandomY = random.Next(Height);
         }
 
