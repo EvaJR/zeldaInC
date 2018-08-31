@@ -68,12 +68,9 @@ namespace ZeldaGame2.controller
              } else
             {
                 Console.WriteLine("Starting game in CHAOS mode...");
-                Run();
+                ChaosGame();
             }
 
-            
-
-            
 
         }
 
@@ -88,6 +85,26 @@ namespace ZeldaGame2.controller
             CurrentTile.Print();
 
             Run();
+        }
+
+        public void ChaosGame()
+        {
+            Random random = new Random();
+            int width = random.Next(1, 11); // creates a number between 1 and 10
+            int height = random.Next(1, 11);
+
+            Map = new Map(width, height);
+            Map.GenerateMap();
+            Player.CoordinateX = 0;
+            Player.CoordinateY = 0;
+
+            // define current tile and print description
+            CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
+            CurrentTile.Print();
+            Console.WriteLine("You are on a map of "+ Map.Height + "x " + Map.Width);
+
+            Run();
+
         }
 
 

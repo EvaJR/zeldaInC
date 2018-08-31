@@ -64,5 +64,20 @@ namespace ZeldaGame2.model
             return ToX >= 0 && ToX < Width && ToY >= 0 && ToY < Height;
         }
 
+        public void GenerateMap()
+        {
+            var forest = new Tile("You see nothing but trees around you");
+
+            // filling a 2D array with forest 
+            // TODO check if width/heigth at the correct loop now
+            for (int row = 0; row < Width; row++)
+            {
+                for (int column = 0; column < Height; column++)
+                {
+                    MapTiles[row, column] = forest;
+                }
+            }
+        }
+
     }
 }
