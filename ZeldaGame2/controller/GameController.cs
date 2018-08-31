@@ -24,10 +24,11 @@ namespace ZeldaGame2.controller
             // welcome
             Ocarina Ocarina = new Ocarina();
 
-            // play music during asking player name (thread)
+            // play music during asking player name (thread) Thanks Hielke!
             Task.Run(() => Ocarina.PlayZeldaTune());
 
-            // new player with initial x,y coordinates
+            // new player with initial x,y coordinates: randomize?
+            
             Player = new Player(3, 3);
 
             void AskPlayerName()
@@ -55,8 +56,31 @@ namespace ZeldaGame2.controller
 
                 Console.WriteLine("Welcome to the game " + Player.Name);
 
-            // map with tiles
-            Map = new Map();
+            Console.WriteLine("Choose a gametype " + Player.Name);
+            Console.WriteLine("1. Normal");
+            Console.WriteLine("2. Chaos");
+            string UserChoice = Console.ReadLine();
+
+            if (UserChoice == "1")
+             {
+                Console.WriteLine("Starting game in normal mode...");
+                NormalGame();
+             } else
+            {
+                Console.WriteLine("Starting game in CHAOS mode...");
+                Run();
+            }
+
+            
+
+            
+
+        }
+
+        public void NormalGame()
+        {
+            // map with tiles: set width and height
+            Map = new Map(6, 6);
             Map.BuildMap();
 
             // define current tile and print description
@@ -64,8 +88,8 @@ namespace ZeldaGame2.controller
             CurrentTile.Print();
 
             Run();
-
         }
+
 
         public void Run()
         {
@@ -77,7 +101,6 @@ namespace ZeldaGame2.controller
 
                 switch(input)
                 {
-                    // TODO: write Move function to DRY
                     case ("north"):
                         Move(0, -1);
                         break;
@@ -89,16 +112,6 @@ namespace ZeldaGame2.controller
                         break;
                     case ("east"):
                         Move(1, 0);
-                        //if (Map.CanMoveToTile(Player.CoordinateX + 1, Player.CoordinateY))
-                        //{
-                        //    Player.CoordinateX++;
-                        //    CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
-                        //    CurrentTile.Print();
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine("You can't go there");
-                        //}
                         break;
                     case ("i"):
                         Player.ShowInventory();

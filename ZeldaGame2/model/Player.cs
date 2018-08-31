@@ -59,7 +59,7 @@ namespace ZeldaGame2.model
                     EquippedWeapon = Inventory[UserChoice - 1];
                     Console.WriteLine("Equipped " + EquippedWeapon.Name);
                 }
-            }//TODO add tryParse? }
+            }//TODO add tryParse 
             catch(System.FormatException)
             { Console.WriteLine("Invalid input."); }
 

@@ -7,12 +7,20 @@ namespace ZeldaGame2.model
     class Map
     {
         // 2D array containing Tile items
-        public Tile[,] MapTiles { get; set; } = new Tile[6, 6];
 
-        // TODO rewrite to a constructor setting height & width of map
-        public Map()
+        public int Width { get; set; }
+        public int Height { get; set; }
+        public Tile[,] MapTiles { get; set; }
+
+
+        //public Tile[,] MapTiles { get; set; } = new Tile[6, 6];
+
+        // constructor setting height & width of map
+        public Map(int width, int height)
         {
-
+            Width = width;
+            Height = height;
+            MapTiles = new Tile[Width, Height];
         }
 
         // TODO write a GenerateMap() function with Math.random
@@ -21,9 +29,10 @@ namespace ZeldaGame2.model
             var forest = new Tile("You see nothing but trees around you");
 
             // filling a 2D array with forest // TODO same thing with random numbers
-            for (int row = 0; row < 6; row++)
+            // TODO check if width/heigth at the correct loop now
+            for (int row = 0; row < Height; row++)
             {
-                for (int column = 0; column < 6; column++)
+                for (int column = 0; column < Width; column++)
                 {
                     MapTiles[row, column] = forest;
                 }
@@ -52,8 +61,7 @@ namespace ZeldaGame2.model
         // check when player falls off the map (used in game controller)
         public bool CanMoveToTile(int ToX, int ToY)
         {
-            // TODO use MapTiles length here for maxvalue
-            return ToX >= 0 && ToX < 6 && ToY >= 0 && ToY < 6;
+            return ToX >= 0 && ToX < Width && ToY >= 0 && ToY < Height;
         }
 
     }
