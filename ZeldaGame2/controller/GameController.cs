@@ -27,6 +27,7 @@ namespace ZeldaGame2.controller
             // play music during asking player name (thread) Thanks Hielke!
             Task.Run(() => Ocarina.PlayZeldaTune());
 
+
             // new player with initial x,y coordinates: randomize?
             
             Player = new Player(3, 3);
@@ -56,22 +57,40 @@ namespace ZeldaGame2.controller
 
                 Console.WriteLine("Welcome to the game " + Player.Name);
 
-            Console.WriteLine("Choose a gametype " + Player.Name);
+            ChooseGame();
+
+        }
+
+        public void ChooseGame()
+        {
+            Console.WriteLine("Choose a gametype");
+            Console.WriteLine("0. Tutorial");
             Console.WriteLine("1. Normal");
             Console.WriteLine("2. Chaos");
             string UserChoice = Console.ReadLine();
 
             if (UserChoice == "1")
-             {
+            {
                 Console.WriteLine("Starting game in normal mode...");
                 NormalGame();
-             } else
+            }
+
+            else if (UserChoice == "0")
+            {
+                Console.WriteLine("*** TUTORIAL ***");
+                Console.WriteLine("     To move around, use the commands 'north', 'south', 'east' and 'west'");
+                Console.WriteLine("     To see your inventory, press 'i'");
+                Console.WriteLine("     To equip a weapon, press 'e'");
+                Console.WriteLine("     To quit, press 'q'");
+                Console.WriteLine("     Press any key to continue");
+                Console.ReadLine();
+                ChooseGame();
+            }
+            else
             {
                 Console.WriteLine("Starting game in CHAOS mode...");
                 ChaosGame();
             }
-
-
         }
 
         public void NormalGame()
@@ -95,13 +114,12 @@ namespace ZeldaGame2.controller
 
             Map = new Map(width, height);
             Map.GenerateMap();
-            Player.CoordinateX = 0;
-            Player.CoordinateY = 0;
+            Player.CoordinateX = random.Next(Map.Width);
+            Player.CoordinateY = random.Next(Map.Height);
 
             // define current tile and print description
             CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
             CurrentTile.Print();
-            Console.WriteLine("You are on a map of "+ Map.Height + "x " + Map.Width);
 
             Run();
 
@@ -139,7 +157,7 @@ namespace ZeldaGame2.controller
                         else
                         { Console.WriteLine("No weapons to equip"); }
                         break;
-                    case ("quit"):
+                    case ("q"):
                         End();
                         break;
                     default:
@@ -174,10 +192,12 @@ namespace ZeldaGame2.controller
                     else
                     {
                         Console.WriteLine("You attack the " + CurrentTile.EnemyOnTile.Name + " with " + Player.EquippedWeapon.Name);
+                        Console.WriteLine("You defeat the troll");
+                        Console.WriteLine("YOU WIN");
+                        End();
                     }
 
                 }
-                    
 
             }
 
