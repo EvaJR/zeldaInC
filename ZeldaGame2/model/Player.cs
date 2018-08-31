@@ -20,20 +20,48 @@ namespace ZeldaGame2.model
         {
 
             Console.WriteLine("*** INVENTORY ***");
-            Console.WriteLine("Rupees: " + RupeeTotal);
+            Console.WriteLine(" Rupees: " + RupeeTotal);
             if (Inventory.Count == 0)
             {
-                Console.WriteLine("Your inventory is empty");
+                Console.WriteLine(" Your inventory is empty");
             } else
             {
-                Console.WriteLine("Weapons (press e to equip a weapon)");
+                Console.WriteLine(" Weapons (press e to equip a weapon)");
                 foreach (Item item in Inventory)
                 {
 
-                    Console.WriteLine(" * " + item.Name);
+                    Console.WriteLine("  * " + item.Name);
                 }
-                // Console.WriteLine("Currently equipped: " + EquippedWeapon.Name);
+                if (EquippedWeapon != null)
+                {
+                    Console.WriteLine(" Currently equipped: " + EquippedWeapon.Name);
+                }
+                
             }
+
+        }
+
+        public void EquipWeapon()
+        {
+            int count = 0;
+            Console.WriteLine("Which weapon do you want to equip?");
+
+            foreach (Item weapon in Inventory)
+            {
+                count += 1;
+                Console.WriteLine(count + ". " + weapon.Name);
+
+            }
+            try {
+                int UserChoice = Convert.ToInt32(Console.ReadLine());
+                if (UserChoice >= 1 && UserChoice <= count)
+                {
+                    EquippedWeapon = Inventory[UserChoice - 1];
+                    Console.WriteLine("Equipped " + EquippedWeapon.Name);
+                }
+            }//TODO add tryParse? }
+            catch(System.FormatException)
+            { Console.WriteLine("Invalid input."); }
 
         }
 

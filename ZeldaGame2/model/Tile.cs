@@ -10,6 +10,7 @@ namespace ZeldaGame2.model
         public bool HasRupee { get; set; }
         
         public Item ItemOnTile { get; set; }
+        public Enemy EnemyOnTile { get; set; }
 
         public Tile (string description)
         {

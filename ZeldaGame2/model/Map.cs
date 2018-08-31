@@ -10,6 +10,10 @@ namespace ZeldaGame2.model
         public Tile[,] MapTiles { get; set; } = new Tile[6, 6];
 
         // TODO rewrite to a constructor setting height & width of map
+        public Map()
+        {
+
+        }
 
         // TODO write a GenerateMap() function with Math.random
         public void BuildMap()
@@ -32,13 +36,15 @@ namespace ZeldaGame2.model
             MapTiles[4, 2] = new Tile("You find a shiny green rupee");
             MapTiles[4, 3] = new Tile("You find a shiny blue rupee");
             MapTiles[2, 3] = new Tile("You hear screaming to the west");
-            MapTiles[1, 3] = new Tile("You see a girl being cornered by a group of trolls. What do you do?");
+            MapTiles[1, 3] = new Tile("");
 
             // link items to tiles
 
             MapTiles[4, 2].HasRupee = true;
             MapTiles[4, 3].HasRupee = true;
             MapTiles[3, 2].ItemOnTile = new Item("branch");
+            MapTiles[1, 3].EnemyOnTile = new Enemy("troll");
+           
 
 
         }

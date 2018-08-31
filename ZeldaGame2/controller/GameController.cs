@@ -79,55 +79,35 @@ namespace ZeldaGame2.controller
                 {
                     // TODO: write Move function to DRY
                     case ("north"):
-                        if(Map.CanMoveToTile(Player.CoordinateX, Player.CoordinateY - 1))
-                        {
-                            Player.CoordinateY--;
-                            CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
-                            CurrentTile.Print();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You can't go there");
-                        }
+                        Move(0, -1);
                         break;
                     case ("south"):
-                        if (Map.CanMoveToTile(Player.CoordinateX, Player.CoordinateY + 1))
-                        {
-                            Player.CoordinateY++;
-                            CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
-                            CurrentTile.Print();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You can't go there");
-                        }
+                        Move(0, 1);
                         break;
                     case ("west"):
-                        if (Map.CanMoveToTile(Player.CoordinateX - 1, Player.CoordinateY))
-                        {
-                            Player.CoordinateX--;
-                            CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
-                            CurrentTile.Print();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You can't go there");
-                        }
+                        Move(-1, 0);
                         break;
                     case ("east"):
-                        if (Map.CanMoveToTile(Player.CoordinateX + 1, Player.CoordinateY))
-                        {
-                            Player.CoordinateX++;
-                            CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
-                            CurrentTile.Print();
-                        }
-                        else
-                        {
-                            Console.WriteLine("You can't go there");
-                        }
+                        Move(1, 0);
+                        //if (Map.CanMoveToTile(Player.CoordinateX + 1, Player.CoordinateY))
+                        //{
+                        //    Player.CoordinateX++;
+                        //    CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
+                        //    CurrentTile.Print();
+                        //}
+                        //else
+                        //{
+                        //    Console.WriteLine("You can't go there");
+                        //}
                         break;
                     case ("i"):
                         Player.ShowInventory();
+                        break;
+                    case ("e"):
+                        if (Player.Inventory.Count > 0)
+                        { Player.EquipWeapon(); }
+                        else
+                        { Console.WriteLine("No weapons to equip"); }
                         break;
                     case ("quit"):
                         End();
@@ -151,6 +131,22 @@ namespace ZeldaGame2.controller
                     CurrentTile.ItemOnTile = null;
                     CurrentTile.Description = "";
                 }
+
+                if(CurrentTile.EnemyOnTile != null)
+                {
+                    Console.WriteLine("A " + CurrentTile.EnemyOnTile.Name + " appears!");
+                    if(Player.EquippedWeapon == null)
+                    {
+                        Console.WriteLine("You have nothing to protect yourself!");
+                        Console.WriteLine("GAME OVER");
+                        End();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You attack the " + CurrentTile.EnemyOnTile.Name + " with " + Player.EquippedWeapon.Name);
+                    }
+
+                }
                     
 
             }
@@ -160,6 +156,24 @@ namespace ZeldaGame2.controller
         public void End()
         {
             Console.WriteLine("Bye!");
+            Playing = false;
+            Console.ReadLine();
         }
+
+        public void Move(int deltaX, int deltaY)
+        {
+            if (Map.CanMoveToTile(Player.CoordinateX + deltaX, Player.CoordinateY + deltaY))
+            {
+                Player.CoordinateY += deltaY;
+                Player.CoordinateX += deltaX;
+                CurrentTile = Map.MapTiles[Player.CoordinateX, Player.CoordinateY];
+                CurrentTile.Print();
+            }
+            else
+            {
+                Console.WriteLine("You can't go there");
+            }
+        }
+
     }
 }
